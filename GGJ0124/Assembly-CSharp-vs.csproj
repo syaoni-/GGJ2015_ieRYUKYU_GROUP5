@@ -52,6 +52,8 @@
      <Compile Include="Assets\_Script\GridManager.cs" />
      <Compile Include="Assets\_Script\InputCtrl.cs" />
      <Compile Include="Assets\_Script\LevelManager.cs" />
+     <Compile Include="Assets\_Script\RocketCtrl.cs" />
+     <Compile Include="Assets\_Script\RocketExplodeCtrl.cs" />
      <Compile Include="Assets\_Script\SingletonMonobehaviour.cs" />
      <Compile Include="Assets\_Script\SoundManager.cs" />
      <Compile Include="Assets\_Script\SoundVolume.cs" />
