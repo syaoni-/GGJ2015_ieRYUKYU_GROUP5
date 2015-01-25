@@ -13,6 +13,8 @@ public class GridCtrl : MonoBehaviour {
 	private GRUID_STATES currentState;
 	private GRUID_STATES nextState;
 
+	public Vector2 originPos;
+
 	// Use this for initialization
 	void Start () {
 	
