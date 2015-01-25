@@ -10,7 +10,7 @@ public class RocketMgr : MonoBehaviour {
 	private GameObject Rocket;
 	private GameObject Cursor;
 
-	GridManager gridMgr;
+	public GridManager gridMgr;
 
 	private enum STATE{
 		NONE,
@@ -41,12 +41,12 @@ public class RocketMgr : MonoBehaviour {
 			break;
 		}
 
-
 		if (nextState == STATE.NONE) {
 			switch (nextState) {
 			case STATE.LEADY:
 				break;
 			case STATE.LAUNCH:
+
 				break;
 			}
 		}
@@ -62,6 +62,8 @@ public class RocketMgr : MonoBehaviour {
 
 
 	void RocketLaunch(int gridNum){
-		Instantiate(Rocket);
+		GridCtrl targerGrid = this.gameObject.GetComponent<GridManager>().grids[gridNum] as GridCtrl;
+		GameObject newRocket = Instantiate(Rocket, targerGrid.originPos, Quaternion.identity) as GameObject;
+		GameObject newCursor = Instantiate(Cursor, targerGrid.originPos, Quaternion.identity) as GameObject;
 	}
 }

@@ -4,16 +4,14 @@ using System.Collections;
 public class RocketCtrl : MonoBehaviour {
 
 	private float mGunShotTime;
-	private float mTime;
 	private float mHeight = 10.0f;
 
 	private GameObject explode;
 
-	public void launch(float iTime){
-
+	private void Start(){
 		this.transform.Translate(Vector3.up * mHeight);
-		mGunShotTime = iTime;
-
+		mGunShotTime = 2.0f;
+		
 		StartCoroutine("forwardRocket");
 	}
 
