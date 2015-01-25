@@ -41,6 +41,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a73523c1c513048bab78476d305f88b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gridLength: 0
+  localOrigin: {x: 0, y: 0}
 --- !u!114 &11454590
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -52,13 +54,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b41b35d16cb2c475f89fa296682f1b05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mUnitState: userwait
   aFirstGridNum: 0
-  mDirection: {x: 0, y: 0}
+  aWaitDirection: 0
+  mWaitDirectionInterval: .5
+  mUnitState: userwait
+  mCurrentGridNum: 0
   mTimeCounter: 0
-  mMoveSpeed: 0
-  mMoveTime: 0
   mMeetTime: 0
+  mDirection: 0
+  mMoveSpeed: 0
 --- !u!212 &21254590
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -79,7 +83,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: eaec1592c148447e3b6ba89cf0cec248, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a03b0a0ae8e8a4550b21e2e13a9abf19, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:
