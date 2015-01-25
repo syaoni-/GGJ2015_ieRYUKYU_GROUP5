@@ -10,7 +10,7 @@ public class GridManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		GridCtrl firstGrid;
+		GridCtrl firstGrid = new GridCtrl();
 		firstGrid.originPos = new Vector2(aUpperRight.position.x, aUpperRight.position.y);
 		grids.Add(firstGrid);
 
@@ -25,7 +25,7 @@ public class GridManager : MonoBehaviour {
 				setY += gridLength;
 			}
 
-			GridCtrl newGrid;
+			GridCtrl newGrid = new GridCtrl();
 			newGrid.originPos = new Vector2();
 			grids.Add(newGrid);
 		}
