@@ -13,6 +13,9 @@ public class Const {
 
 	public static float CHARA_OFSET = 0.0f;
 
+	public static int COL = 7;
+	public static int ROW = 4;
+
 	public static float MEET_FAST = 0.5f;
 	public static float MEET_LATE = 1.5f;
 
