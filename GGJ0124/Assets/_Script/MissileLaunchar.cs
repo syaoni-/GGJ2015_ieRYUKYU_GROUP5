@@ -71,7 +71,7 @@ public class MissileLaunchar : MonoBehaviour {
 
 		XGrid = Random.Range (-3, 4);
 		YGrid = Random.Range (-4, 0);
-		GridNumber = XGrid - (YGrid + 1)* 8 + 3;
+		GridNumber = XGrid - (YGrid + 1)* 7 + 3;
 		xGrid = (float)XGrid * xGridRangs;
         yGrid = (float)YGrid * yGridRangs;
         NextMissileCreateTime += Time.deltaTime;
