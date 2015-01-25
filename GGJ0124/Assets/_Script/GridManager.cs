@@ -21,7 +21,7 @@ public class GridManager : MonoBehaviour {
 
 			setX += gridLength;
 			if (i % Const.COL == 0) {
-				setX = aUpperRight.x;
+				setX = aUpperRight.position.x;
 				setY += gridLength;
 			}
 
@@ -30,9 +30,5 @@ public class GridManager : MonoBehaviour {
 			grids.Add(newGrid);
 		}
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+
 }
