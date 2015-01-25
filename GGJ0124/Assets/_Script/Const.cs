@@ -16,6 +16,8 @@ public class Const {
 	public static float MEET_FAST = 0.5f;
 	public static float MEET_LATE = 1.5f;
 
+	public static float LAUNCH_FAST = 1.5f;
+	public static float LAUNCH_LATE = 3.0f;
 
 	public struct MyStruct
 	{

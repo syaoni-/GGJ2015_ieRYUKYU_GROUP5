@@ -12,7 +12,6 @@ public class RocketCtrl : MonoBehaviour {
 	public void launch(float iTime){
 
 		this.transform.Translate(Vector3.up * mHeight);
-
 		mGunShotTime = iTime;
 
 		StartCoroutine("forwardRocket");
