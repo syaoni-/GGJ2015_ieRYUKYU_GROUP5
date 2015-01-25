@@ -9,7 +9,7 @@ public class PanickPeapleAction : MonoBehaviour {
     private Sprite WhachBack;
     private float WhachInterval = 0.0f;
     private float NextPeapleWhachTime = 0.0f;
-    private int IndexAngle = 5;
+    public int IndexAngle = 5;
     private Animator _anim;
 
 	// Use this for initialization
@@ -26,17 +26,17 @@ public class PanickPeapleAction : MonoBehaviour {
 	void Update () {
         NextPeapleWhachTime += Time.deltaTime;
         
-        if (IndexAngle == 3) {
-            transform.Translate (transform.up * 1.9f * Time.deltaTime);
+        if (IndexAngle == Const.UP) {
+//            transform.Translate (transform.up * 1.9f * Time.deltaTime);
             _anim.Play ("Back");
-        } else if (IndexAngle == 0) {
-            transform.Translate (transform.up * -1.9f * Time.deltaTime);
+        } else if (IndexAngle == Const.DOWN) {
+//            transform.Translate (transform.up * -1.9f * Time.deltaTime);
             _anim.Play ("Ahead");
-        } else if (IndexAngle == 1) {
-            transform.Translate (transform.right * 1.9f * Time.deltaTime);
+        } else if (IndexAngle == Const.RIGHT) {
+//            transform.Translate (transform.right * 1.9f * Time.deltaTime);
             _anim.Play ("Right");
-        } else if (IndexAngle == 2) {
-            transform.Translate (transform.right * -1.9f * Time.deltaTime);
+        } else if (IndexAngle == Const.LEFT) {
+//            transform.Translate (transform.right * -1.9f * Time.deltaTime);
             _anim.Play ("Left");
         } else {
             Panick ();

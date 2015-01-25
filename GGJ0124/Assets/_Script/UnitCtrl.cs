@@ -13,7 +13,8 @@ public class UnitCtrl : MonoBehaviour {
 	private float mMaxWaitInterval = 1.0f;
 
 	public string mUnitState;
-
+	
+	public int mTargetGridNum;
 	public int mCurrentGridNum;
 	
 	[SerializeField]
@@ -27,10 +28,18 @@ public class UnitCtrl : MonoBehaviour {
 	[SerializeField]
 	private float mMoveSpeed;
 
+	private PanickPeapleAction mPanickPeapleAction;
+
+	public GameObject meetImg;
+
 	// Use this for initialization
 	void Start () {
 		this.mTimeCounter = 0f;
 		this.InitUnit(aFirstGridNum);
+
+		this.meetImg.gameObject.SetActive (false);
+
+		mPanickPeapleAction = this.GetComponent<PanickPeapleAction> ();
 
 		aWaitDirection = Random.Range(Const.UP, Const.LEFT);
 	}
@@ -67,23 +76,33 @@ public class UnitCtrl : MonoBehaviour {
 	public void ActWait(){
 		this.mUnitState = Const.USER_WAIT;
 		this.mTimeCounter = 0f;
+		this.mPanickPeapleAction.IndexAngle = 5;
+
+		this.meetImg.gameObject.SetActive (false);
 	}
 
-	public void ActMeet(float iMeetingTime, int iDirection, int iTargetGrid){
+	public void ActMeet(float iMeetingTime, int iDirection, int iTargetGridNum){
 		this.mUnitState = Const.USER_MEET;
 		this.mTimeCounter = 0f;
 
 		this.mMeetTime = iMeetingTime;
 		this.mDirection = iDirection;
-		this.mCurrentGridNum = iTargetGrid;
+		this.mTargetGridNum = iTargetGridNum;
+
+		this.meetImg.gameObject.SetActive (true);
 	}
 
 	public void ActMove(){
 		this.mUnitState = Const.USER_MOVE;
 		this.mTimeCounter = 0f;
 
+		this.mPanickPeapleAction.IndexAngle = mDirection;
+
+		this.mCurrentGridNum = this.mTargetGridNum;
 		this.GetComponent<UnitMove>().move(mDirection);
 		Debug.Log ("move start");
+
+		this.meetImg.gameObject.SetActive (false);
 	}
 	#endregion
 	

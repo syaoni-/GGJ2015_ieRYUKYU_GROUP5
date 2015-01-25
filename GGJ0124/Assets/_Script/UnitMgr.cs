@@ -22,14 +22,15 @@ public class UnitMgr : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
+		this.checkGameOver ();
 	}
 
-//	private checkGameOver(){
-//		foreach ( in aGridCenter) {
-//
-//		}
-//	}
+	private void checkGameOver(){
+		int iUnitNum = this.gameObject.transform.childCount;
+		if (iUnitNum == 0) {
+			//Call GameOver
+		}
+	}
 
 
 	/// <summary>
