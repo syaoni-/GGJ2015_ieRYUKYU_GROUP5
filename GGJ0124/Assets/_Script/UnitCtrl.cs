@@ -3,7 +3,8 @@ using System.Collections;
 
 public class UnitCtrl : MonoBehaviour {
 
-	public int aFirstGridNum;
+	[SerializeField]
+	private int aFirstGridNum = 10;
 
 	public int aWaitDirection;
 	[SerializeField]
@@ -11,8 +12,7 @@ public class UnitCtrl : MonoBehaviour {
 	private float mMinWaitInterval = 0.5f;
 	private float mMaxWaitInterval = 1.0f;
 
-	[SerializeField]
-	private string mUnitState;
+	public string mUnitState;
 
 	public int mCurrentGridNum;
 	
@@ -69,27 +69,32 @@ public class UnitCtrl : MonoBehaviour {
 		this.mTimeCounter = 0f;
 	}
 
-	public void ActMeet(){
+	public void ActMeet(float iMeetingTime, int iDirection, int iTargetGrid){
 		this.mUnitState = Const.USER_MEET;
 		this.mTimeCounter = 0f;
+
+		this.mMeetTime = iMeetingTime;
+		this.mDirection = iDirection;
+		this.mCurrentGridNum = iTargetGrid;
 	}
 
 	public void ActMove(){
-		this.GetComponent<UnitMove>().move(mDirection);
 		this.mUnitState = Const.USER_MOVE;
 		this.mTimeCounter = 0f;
+
+		this.GetComponent<UnitMove>().move(mDirection);
 		Debug.Log ("move start");
 	}
 	#endregion
 	
-	public void ActUnit(float iMeetTime, int iDirection){
-		Debug.Log (iDirection);
-		if (this.mUnitState == Const.USER_WAIT) {
-			this.mMeetTime	= iMeetTime;
-			this.mDirection = iDirection;
-			this.ActMeet();
-		}
-	}
+//	public void ActUnit(float iMeetTime, int iDirection){
+//		Debug.Log (iDirection);
+//		if (this.mUnitState == Const.USER_WAIT) {
+//			this.mMeetTime	= iMeetTime;
+//			this.mDirection = iDirection;
+//			this.ActMeet();
+//		}
+//	}
 
 	#region KillUnit
 	public void Destroy(){
