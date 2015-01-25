@@ -46,7 +46,6 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\UnitMgr.cs" />
      <Compile Include="Assets\_Script\Const.cs" />
      <Compile Include="Assets\_Script\CursorCtrl.cs" />
      <Compile Include="Assets\_Script\GridCtrl.cs" />
@@ -64,6 +63,7 @@
      <Compile Include="Assets\_Script\SoundVolume.cs" />
      <Compile Include="Assets\_Script\TimeManager.cs" />
      <Compile Include="Assets\_Script\UnitCtrl.cs" />
+     <Compile Include="Assets\_Script\UnitMgr.cs" />
      <Compile Include="Assets\_Script\UnitMove.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/4.6.1/UnityEngine.UI.dll</HintPath>
