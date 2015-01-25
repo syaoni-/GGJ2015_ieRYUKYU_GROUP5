@@ -119,6 +119,7 @@ public class UnitCtrl : MonoBehaviour {
 	public void Destroy(){
 		//DestroyAnimation
 		StartCoroutine ("DestroyAnim");
+		Debug.Log("destroy destroy");
 	}
 	private IEnumerator DestroyAnim(){
 		Destroy (this.gameObject);

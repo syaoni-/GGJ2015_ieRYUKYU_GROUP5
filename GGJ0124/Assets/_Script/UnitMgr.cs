@@ -7,12 +7,15 @@ public class UnitMgr : MonoBehaviour {
 	public int aUnitNum;
 	public UnitCtrl[] aUnitCtrl;
 
+	public MissileLaunchar aMissileLaunchar;
 
 	//Set Grid Info
 	public Transform aGridRightTop;
 	public Transform aGridLeftBottom;
 	public Transform aGridCenter;
 	public float mGridLength;
+
+	public int leftUnitNum;
 
 	// Use this for initialization
 	void Start () {
@@ -26,9 +29,10 @@ public class UnitMgr : MonoBehaviour {
 	}
 
 	private void checkGameOver(){
-		int iUnitNum = this.gameObject.transform.childCount;
-		if (iUnitNum == 0) {
+		leftUnitNum = this.gameObject.transform.childCount;
+		if (leftUnitNum == 0) {
 			//Call GameOver
+			this.aMissileLaunchar.GameOver();
 		}
 	}
 
@@ -69,8 +73,21 @@ public class UnitMgr : MonoBehaviour {
 				this.GridAmount(aUnitCtrls,aIndex,iDirection);
 			}
 		}
-
 	}
+
+	public void hitMissile(int iGridNum){
+		Transform aUnitMngTrans = this.gameObject.transform;
+		foreach (Transform child in aUnitMngTrans) {
+			UnitCtrl aUnitCtrl = child.gameObject.GetComponent<UnitCtrl>();
+
+			if (aUnitCtrl.mCurrentGridNum == iGridNum 
+			    && (aUnitCtrl.mUnitState == Const.USER_WAIT
+			    || aUnitCtrl.mUnitState == Const.USER_MEET)) {
+				aUnitCtrl.Destroy();
+			}	
+		}
+	}
+
 
 	private void MeetUnits (UnitCtrl[] iUnitCtrls, int iDirection, float iMeetingTime, int iGridNum){
 		foreach (UnitCtrl unitCtrl in iUnitCtrls) {
@@ -149,15 +166,8 @@ public class UnitMgr : MonoBehaviour {
 		} else if (aDirectionRank == 3){
 			this.MeetUnits(iUnitCtrls,iDirection,Const.MEET_LATE, nextGridNum);
 		}
-
-
 	}
-
-
-
-
-
-
+	
 	/// <summary>
 	/// Inits the units.
 	/// </summary>

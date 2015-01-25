@@ -4,6 +4,8 @@ using System.Collections;
 public class MissileAction : MonoBehaviour {
 	private GameObject MissileObj;
 	public AudioClip ShootClip;
+
+	public int aGridNum = 0;
 	AudioSource ShootSource;
 
     // Use this for initialization
@@ -36,6 +38,7 @@ public class MissileAction : MonoBehaviour {
         }
         GameObject ExplosionObj = Instantiate (Resources.Load ("Prefab/Explosion"), this.gameObject.transform.position, Quaternion.identity) as GameObject;
         yield return new WaitForSeconds(0.1f);
+		GameObject.Find ("UnitMgr").GetComponent<UnitMgr> ().hitMissile (this.aGridNum);
         Destroy(this.gameObject);
         Destroy(ExplosionObj.gameObject);
         yield return null;
