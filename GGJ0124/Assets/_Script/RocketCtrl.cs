@@ -30,7 +30,6 @@ public class RocketCtrl : MonoBehaviour {
 			this.transform.Translate(-Vector3.up * mGunShotTime / mHeight);
 			yield return null;
 		}
-		explode = Resources.Load("Prefab/RocketExplode");
 		Instantiate(explode, this.transform.position, Quaternion.identity);
 		Object.Destroy(this.gameObject);
 	}
