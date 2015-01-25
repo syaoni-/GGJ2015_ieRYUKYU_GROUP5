@@ -48,6 +48,7 @@
   <ItemGroup>
      <Compile Include="Assets\UnitMgr.cs" />
      <Compile Include="Assets\_Script\Const.cs" />
+     <Compile Include="Assets\_Script\CursorCtrl.cs" />
      <Compile Include="Assets\_Script\GridCtrl.cs" />
      <Compile Include="Assets\_Script\GridManager.cs" />
      <Compile Include="Assets\_Script\InputCtrl.cs" />

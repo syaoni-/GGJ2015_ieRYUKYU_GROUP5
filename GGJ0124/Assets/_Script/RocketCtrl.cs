@@ -3,18 +3,35 @@ using System.Collections;
 
 public class RocketCtrl : MonoBehaviour {
 
-	public Vector2 aTargetPos;
-	public float aGunShotTime;
+	private float mGunShotTime;
+	private float mTime;
+	private float mHeight = 10.0f;
 
-	private Texture explode;
+	private GameObject explode;
 
-	// Use this for initialization
-	void Start () {
-	
+	public void launch(float iTime){
+
+		this.transform.Translate(Vector3.up * mHeight);
+
+		mGunShotTime = iTime;
+
+		StartCoroutine("forwardRocket");
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		Update();
+
+	private IEnumerator forwardRocket(){
+		float iTime = 0.0f;
+		
+		while (true) {
+			iTime += Time.deltaTime;
+			if (iTime > mGunShotTime) {
+				break;
+			}
+
+			this.transform.Translate(-Vector3.up * mGunShotTime / mHeight);
+			yield return null;
+		}
+		explode = Resources.Load("Prefab/RocketExplode");
+		Instantiate(explode, this.transform.position, Quaternion.identity);
+		Object.Destroy(this.gameObject);
 	}
 }
