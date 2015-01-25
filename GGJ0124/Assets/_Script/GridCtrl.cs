@@ -14,6 +14,7 @@ public class GridCtrl : MonoBehaviour {
 	private GRUID_STATES nextState;
 
 	public Vector2 originPos;
+	public int ID;
 
 	// Use this for initialization
 	void Start () {
@@ -55,6 +56,45 @@ public class GridCtrl : MonoBehaviour {
 		}
 
 
+	}
+
+
+	public int Cross(int gridId, int currentDirection){
+
+		if (0 <= gridId && gridId < Const.COL && currentDirection == Const.UP) {
+			return gridId;
+		}
+
+		if (gridId % Const.COL == 0 && currentDirection == Const.LEFT) {
+			return gridId;
+		}
+
+
+		if (Const.ROW * Const.COL - Const.COL <= gridId && gridId < Const.ROW * Const.COL) {
+			return gridId;
+		}
+
+		if (gridId % Const.COL == Const.COL - 1 && currentDirection == Const.RIGHT) {
+			return gridId;
+		}
+
+
+		do {
+			if (currentDirection == Const.DOWN) {
+				return gridId + Const.COL;
+			}
+			if (currentDirection == Const.UP) {
+				return gridId - Const.COL;
+			}
+			if (currentDirection == Const.LEFT) {
+				return gridId - 1;
+			}
+			if (currentDirection == Const.RIGHT) {
+				return gridId + 1;
+			}
+		} while(false);
+
+		return gridId;
 	}
 
 }
