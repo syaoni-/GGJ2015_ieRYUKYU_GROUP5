@@ -14,8 +14,7 @@ public class UnitCtrl : MonoBehaviour {
 	[SerializeField]
 	private string mUnitState;
 
-	[SerializeField]
-	private int mCurrentGridNum;
+	public int mCurrentGridNum;
 	
 	[SerializeField]
 	private float mTimeCounter;

@@ -317,6 +317,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aUnitNum: 20
+  aUnitCtrl: []
   aGridRightTop: {fileID: 1406618935}
   aGridLeftBottom: {fileID: 702169262}
   aGridCenter: {fileID: 773766331}

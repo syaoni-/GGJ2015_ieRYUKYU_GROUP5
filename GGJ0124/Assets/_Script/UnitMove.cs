@@ -34,37 +34,31 @@ public class UnitMove : MonoBehaviour {
 
 		do {
 			if (currentDirection == Const.DOWN) {
-				moveY = gridLength;
-				localOrigin.y += gridLength;
-			}
-			if (currentDirection == Const.UP) {
-				moveY = -gridLength;
 				localOrigin.y -= gridLength;
 			}
+			if (currentDirection == Const.UP) {
+				localOrigin.y += gridLength;
+			}
 			if (currentDirection == Const.LEFT) {
-				moveX = gridLength;
-				localOrigin.x += gridLength;
+				localOrigin.x -= gridLength;
 			}
 			if (currentDirection == Const.RIGHT) {
-				moveX = -gridLength;
-				localOrigin.x -= gridLength;
+				localOrigin.x += gridLength;
 			}
 		} while(false);
 
+		float minMoveX = (this.localOrigin.x - this.transform.position.x - this.gridLength / 2);
+		float maxMoveX = (this.localOrigin.x - this.transform.position.x + this.gridLength / 2);
+		float minMoveY = (this.localOrigin.y - this.transform.position.y - this.gridLength / 2);
+		float maxMoveY = (this.localOrigin.y - this.transform.position.y + this.gridLength / 2);
 
-		float minMoveX = -(this.gridLength/2 + this.localOrigin.x - this.transform.position.x) + this.offsetPos;
-		float maxMoveX = (this.gridLength/2 - this.localOrigin.x + this.transform.position.x) - this.offsetPos;
-		float minMoveY = -(this.gridLength/2 + this.localOrigin.y - this.transform.position.y) + this.offsetPos;
-		float maxMoveY = (this.gridLength/2 - this.localOrigin.y + this.transform.position.y) - this.offsetPos;
+		moveX = Random.Range (minMoveX, maxMoveX);
+		moveY = Random.Range (minMoveY, maxMoveY);
 
-		moveX += Random.Range(minMoveX, maxMoveX);
-		moveY += Random.Range(minMoveY, maxMoveY);
-
-		dx = -moveX / moveTime;
-		dy = -moveY / moveTime;
+		dx = moveX / moveTime;
+		dy = moveY / moveTime;
 
 		StartCoroutine("moveCorutine");
-
 	}
 
 	private IEnumerator moveCorutine(){
