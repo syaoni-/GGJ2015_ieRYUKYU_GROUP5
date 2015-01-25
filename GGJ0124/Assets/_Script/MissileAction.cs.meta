@@ -1,0 +1,9 @@
+fileFormatVersion: 2
+guid: 4f37407d4b99647eaac113a7500d82fa
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - ShootClip: {fileID: 8300000, guid: 14998c4ae86e3419ba96259120d8f1e5, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
